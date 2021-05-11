@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Signika:wght@300&display=swap");
+.main-user-desc-edit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+.main-user-edit {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+}
+.userpage-edit {
+    outline: none;
+}
+.save-edit {
+    width: 45%;
+}
+.user-info-main {
+    font-family: "Signika", sans-serif;
+    /* border: 1px solid black; */
+
+    width: 80%;
+}
+.user-name {
+    font-size: 27px;
+}
+.user-status {
+    font-size: 18px;
+    border-bottom: 1px solid rgb(212, 212, 212);
+}
+.user-info-second {
+    font-size: 16px;
+    color: gray;
+}
+.bio {
+    display: flex;
+}
+.user-image {
+    overflow: hidden;
+    width: 250px;
+    margin: 15px 40px;
+}
+.user-image {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 50%;
+    text-align: center;
+}
+.user-image img {
+    height: 100%;
+    width: 100%;
+    /* margin-left: -50px; */
+}
+.user-info {
+    background-color: white;
+    width: 900px;
+    height: 300px;
+    border: 1px solid rgb(202, 202, 202);
+    margin-top: 10px;
+}
+.main-desc {
+    margin: 17px 0;
+}
+.card-page {
+    margin-top: 10px;
+}
+
+.user-active-container {
+    background: white;
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 800px;
+    height: 100px;
+    border: 1px solid rgb(202, 202, 202);
+}

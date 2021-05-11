@@ -1,0 +1,93 @@
+{
+  "userInfo": [
+    {
+      "name": "Aiperi",
+      "status": "\\(0_0)/",
+      "birthday": "07 march 2003",
+      "city": "Bishkek",
+      "education": "Lyceum KGTU",
+      "image": "https://static.toiimg.com/thumb/msid-53891743,width-748,height-499,resizemode=4,imgsize-152022/.jpg",
+      "id": "aiperi@gmail.com"
+    },
+    {
+      "name": "Luck",
+      "status": "lucky",
+      "birthday": "101010",
+      "city": "bbbb",
+      "education": "bbb",
+      "image": "https://pressgazette.co.uk/wp-content/uploads/2020/11/shutterstock.jpg",
+      "id": "luck@gmail.com"
+    },
+    {
+      "name": "User",
+      "status": "user",
+      "birthday": "10 08 1978",
+      "city": "user",
+      "education": "user",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8VV4KSLhBb814d-NOjVW3tWQ3AJGFDcvr6g&usqp=CAU",
+      "id": "user@gmail.com"
+    },
+    {
+      "name": "Perrie",
+      "status": "mmmh",
+      "birthday": "03 03 03",
+      "city": "Busan",
+      "education": "bbb",
+      "image": "https://media.macphun.com/img/uploads/customer/how-to/579/15531840725c93b5489d84e9.43781620.jpg?q=85&w=1340",
+      "id": "perrie@gmail.com"
+    },
+    {
+      "name": "Wolf",
+      "status": "Wolf",
+      "birthday": "222222",
+      "city": "sss",
+      "education": "aaaaaaaaaa",
+      "image": "https://searchthisweb.com/wallpaper/waves_2500x1656_3f12t.jpg",
+      "id": "wolf@gmail.com"
+    }
+  ],
+  "post": [
+    {
+      "description": "aiperi",
+      "image": "https://apod.nasa.gov/apod/image/1907/SpotlessSunIss_Colacurcio_2048.jpg",
+      "secondId": "luck@gmail.com",
+      "uid": "gbosnM7iGTXOrh31StrkfKDZdQs2",
+      "date": "11.05.2021, 15:59:04",
+      "like": [],
+      "view": [],
+      "id": 1
+    }
+  ],
+  "user": [
+    {
+      "name": "Aiperi",
+      "email": "aiperi@gmail.com",
+      "password": "aiperi123",
+      "id": 1
+    },
+    {
+      "name": "Luck",
+      "email": "luck@gmail.com",
+      "password": "123456",
+      "id": 2
+    },
+    {
+      "name": "user",
+      "email": "user@gmail.com",
+      "password": "123456",
+      "id": 3
+    },
+    {
+      "name": "Perrie",
+      "email": "perrie@gmail.com",
+      "password": "123456",
+      "id": 4
+    },
+    {
+      "name": "Wolf",
+      "email": "wolf@gmail.com",
+      "password": "123456789",
+      "id": 5
+    }
+  ]
+}
