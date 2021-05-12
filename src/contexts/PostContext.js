@@ -64,17 +64,8 @@ const PostContextProvider = ({ children }) => {
     const deletePost = async (id, history) => {
         await axios.delete(`http://localhost:8000/post/${id}`);
         getPost();
-        // getPostPagination(history);
     };
 
-    // const getPost = async (secondId) => {
-    //     let { data } = await axios.get(`http://localhost:8000/post?_expand=${secondId}`);
-
-    //     dispatch({
-    //         type: "GET_POST",
-    //         payload: data,
-    //     });
-    // };
     function addProductToSave(product) {
         let post = JSON.parse(localStorage.getItem("post"));
         if (!post) {
@@ -139,9 +130,17 @@ const PostContextProvider = ({ children }) => {
         getPost();
     }
 
+    function getAlarm(post, user) {
+        let newObj = {
+            post,
+            user,
+        };
+        axios.post(`http://localhost:8000/alarm`, newObj);
+    }
     return (
         <postContext.Provider
             value={{
+                getAlarm,
                 loadMore,
                 editPost,
                 limit: limit,

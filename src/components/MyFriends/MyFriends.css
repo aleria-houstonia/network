@@ -1,0 +1,13 @@
+@media all and (max-width: 425px) {
+    .one-user {
+        width: 300px;
+        margin-left: 50px;
+    }
+}
+
+@media all and (max-width: 375px) {
+    .one-user {
+        width: 260px;
+        margin-left: 50px;
+    }
+}

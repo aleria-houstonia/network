@@ -23,7 +23,8 @@ import { userContext } from "../../contexts/UsersContext";
 import { useAuth } from "../../contexts/AuthContext";
 const useStyles = makeStyles((theme) => ({
     root: {
-        width: 400,
+        maxWidth: 450,
+        minWidth: 300,
     },
     media: {
         height: 0,
@@ -54,13 +55,12 @@ const PostCard = (props) => {
         checkProductInCart,
         deleteCartProducts,
         editPost,
+        getAlarm,
     } = useContext(postContext);
     const { userInfoData } = useContext(userInfoContext);
-    const { getLikes, allLikes, likes } = useContext(userContext);
     const { currentUser } = useAuth();
     useEffect(() => {
         getPost();
-        allLikes();
         getPostPagination(history);
     }, []);
     function funcLike(post, user) {
@@ -76,7 +76,9 @@ const PostCard = (props) => {
         } else {
             newPost.like.push(newLike);
             editPost(post.id, newPost);
+            getAlarm(post.description, user);
         }
+
         // setExpanded2(!expanded2);
     }
 
@@ -146,7 +148,7 @@ const PostCard = (props) => {
                         onClick={() => funcLike(props.item, currentUser.email)}
                     >
                         <FavoriteIcon />
-                        {/* {props.item.like.length} */}
+                        {props.item.like.length}
                     </IconButton>
                     <IconButton
                         aria-label="comment"
@@ -180,7 +182,7 @@ const PostCard = (props) => {
 
                     <IconButton>
                         <i class="fas fa-eye"></i>
-                        {/* {props.item.view.length} */}
+                        {props.item.view.length}
                     </IconButton>
                 </CardActions>
                 <Collapse in={expanded} timeout="auto" unmountOnExit>
@@ -188,13 +190,6 @@ const PostCard = (props) => {
                         <Comments name={props.item.description} />
                     </div>
                 </Collapse>
-                {/* <Collapse in={expanded2} timeout="auto" unmountOnExit>
-                    <div style={{ borderTop: "1px solid lightgray" }}>
-                        {props.item.like.map((item) => (
-                            <div> {item}</div>
-                        ))}
-                    </div>
-                </Collapse> */}
             </Card>
         </div>
     );

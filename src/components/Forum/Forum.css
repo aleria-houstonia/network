@@ -1,0 +1,5 @@
+@media all and (max-width: 425px) {
+    .chat__container {
+        margin-left: 80px;
+    }
+}

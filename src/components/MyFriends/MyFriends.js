@@ -4,15 +4,11 @@ import { useHistory } from "react-router";
 import { userInfoContext } from "../../contexts/UserInfoContext";
 import { userContext } from "../../contexts/UsersContext";
 import EmailOutlinedIcon from "@material-ui/icons/EmailOutlined";
+import "./MyFriends.css";
 const MyFriends = () => {
     const { getFriendsInfo, getInfo } = useContext(userInfoContext);
-    const {
-        getFriend,
-        friend,
-        resUsers,
-        getUsersRes,
-        deleteFriend,
-    } = useContext(userContext);
+    const { getFriend, friend, resUsers, getUsersRes, deleteFriend } =
+        useContext(userContext);
     const history = useHistory();
     useEffect(() => {
         getFriend();
@@ -35,7 +31,10 @@ const MyFriends = () => {
             }}
         >
             {" "}
-            <div> My friends</div>
+            <div style={{ fontSize: "30px", margin: "30px 0" }}>
+                {" "}
+                My friends
+            </div>
             <div className="main-container">
                 {friend && friend?.posts ? (
                     <>
@@ -72,7 +71,9 @@ const MyFriends = () => {
                         ))}
                     </>
                 ) : (
-                    "no friends"
+                    <div style={{ fontSize: "30px", margin: "30px 0" }}>
+                        no friends
+                    </div>
                 )}
             </div>
         </div>

@@ -13,9 +13,8 @@ const UserPage = ({ history }) => {
     const [editState, setEditState] = useState({});
     const [editStatus, setEditStatus] = useState(false);
     const { currentUser } = useAuth();
-    const { getFriend, friend, resUsers, getUsersRes } = useContext(
-        userContext
-    );
+    const { getFriend, friend, resUsers, getUsersRes } =
+        useContext(userContext);
     useEffect(() => {
         getPost();
         getFriend();
@@ -56,52 +55,77 @@ const UserPage = ({ history }) => {
                         {editStatus ? (
                             <div className="main-user-desc-edit">
                                 <div className="main-user-edit">
+                                    <span style={{ textAlign: "center" }}>
+                                        Name:{" "}
+                                    </span>{" "}
                                     <textarea
                                         className="userpage-edit"
                                         name="name"
                                         onChange={handleValue}
                                         placeholder="name"
                                         type="text"
+                                        style={{ textAlign: "center" }}
                                     >
                                         {userInfoData.name}
                                     </textarea>
+                                    <span style={{ textAlign: "center" }}>
+                                        Status:{" "}
+                                    </span>{" "}
                                     <textarea
                                         className="userpage-edit"
                                         name="status"
                                         onChange={handleValue}
                                         placeholder="status"
                                         type="text"
+                                        style={{ textAlign: "center" }}
                                     >
                                         {userInfoData.status}
                                     </textarea>
+                                    <span style={{ textAlign: "center" }}>
+                                        Birthday:{" "}
+                                    </span>{" "}
                                     <textarea
                                         className="userpage-edit"
                                         name="birthday"
                                         onChange={handleValue}
                                         placeholder="birthday"
                                         type="text"
+                                        style={{ textAlign: "center" }}
                                     >
                                         {userInfoData.birthday}
                                     </textarea>
+                                    <span style={{ textAlign: "center" }}>
+                                        City:{" "}
+                                    </span>{" "}
                                     <textarea
                                         className="userpage-edit"
                                         name="city"
                                         onChange={handleValue}
                                         placeholder="city"
                                         type="text"
+                                        style={{ textAlign: "center" }}
                                     >
                                         {userInfoData.city}
                                     </textarea>
+                                    <span style={{ textAlign: "center" }}>
+                                        Education:{" "}
+                                    </span>{" "}
                                     <textarea
                                         className="userpage-edit"
                                         name="education"
                                         onChange={handleValue}
                                         placeholder="education"
                                         type="text"
+                                        style={{ textAlign: "center" }}
                                     >
                                         {userInfoData.education}
                                     </textarea>
+                                    <span style={{ textAlign: "center" }}>
+                                        Image:{" "}
+                                    </span>{" "}
                                     <textarea
+                                        style={{ textAlign: "center" }}
+                                        className="userpage-edit"
                                         name="image"
                                         onChange={handleValue}
                                         placeholder="image"
@@ -109,12 +133,19 @@ const UserPage = ({ history }) => {
                                     >
                                         {userInfoData.image}
                                     </textarea>
-                                    <button
-                                        className="save-edit"
-                                        onClick={handleSave}
+                                    <div
+                                        style={{
+                                            display: "flex",
+                                            justifyContent: "center",
+                                        }}
                                     >
-                                        Save
-                                    </button>
+                                        <button
+                                            className="save-edit"
+                                            onClick={handleSave}
+                                        >
+                                            Save
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         ) : (
@@ -146,6 +177,7 @@ const UserPage = ({ history }) => {
                                             </div>
                                             {userInfoData ? (
                                                 <button
+                                                    className="editBtn"
                                                     onClick={() => {
                                                         setEditStatus(true);
                                                     }}
@@ -162,14 +194,8 @@ const UserPage = ({ history }) => {
                                 </div>
                                 <div className="user-active">
                                     <div className="user-active-container">
-                                        <div
-                                            style={{
-                                                display: "flex",
-                                                alignItems: "center",
-                                                flexDirection: "column",
-                                            }}
-                                        >
-                                            <div style={{ fontSize: "25px" }}>
+                                        <div className="count-main">
+                                            <div className="count-user">
                                                 {friend?.posts.length}{" "}
                                             </div>
                                             <div>
@@ -182,15 +208,13 @@ const UserPage = ({ history }) => {
                                                 history.push("/gallery");
                                             }}
                                         >
-                                            <i class="fas fa-images"></i>
-                                            images
+                                            <i class="fas fa-images"></i> images
                                         </div>
                                         <div>
-                                            <i class="fas fa-heart"></i>
-                                            likes
+                                            <i class="fas fa-heart"></i> likes
                                         </div>
                                         <div>
-                                            <i class="fas fa-headphones-alt"></i>
+                                            <i class="fas fa-headphones-alt"></i>{" "}
                                             music
                                         </div>
                                     </div>
@@ -202,7 +226,9 @@ const UserPage = ({ history }) => {
                     <>
                         {" "}
                         {/* <p>{currentUser.email}</p> */}
-                        <button onClick={addFunc}>Add</button>
+                        <button className="userPage-add" onClick={addFunc}>
+                            Add
+                        </button>
                     </>
                 )}
                 <div
@@ -210,7 +236,7 @@ const UserPage = ({ history }) => {
                     style={{
                         display: "flex",
                         justifyContent: "center",
-
+                        marginBottom: "10px",
                         flexWrap: "wrap",
                         width: "500px",
                     }}

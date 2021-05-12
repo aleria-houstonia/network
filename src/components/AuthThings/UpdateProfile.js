@@ -44,13 +44,7 @@ export default function UpdateProfile() {
 
     return (
         <>
-            <div
-                style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    margin: "20px",
-                }}
-            >
+            <div className="login-main">
                 <form className="login" onSubmit={handleSubmit}>
                     <div style={{ textAlign: "center" }}>
                         <h2 className="login-text"> Update Profile</h2>

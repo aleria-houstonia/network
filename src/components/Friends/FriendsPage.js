@@ -1,17 +1,32 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { userInfoContext } from "../../contexts/UserInfoContext";
 import { postContext } from "../../contexts/PostContext";
 import PostCard from "../Post/PostCard";
 // <i class="fas fa-user-plus"></i>
 import "./Friends.css";
+import { useAuth } from "../../contexts/AuthContext";
+import { messageContext } from "../../contexts/MessageContext";
+import Message from "../Message/Message";
 const FriendsPage = ({ history }) => {
     const { userInfoData, friendData } = useContext(userInfoContext);
     const { getPost, postData } = useContext(postContext);
-
-    // console.log(props.id);
+    const { currentUser } = useAuth();
+    const { postMessage, getMessage } = useContext(messageContext);
+    const [messageArea, setMessageArea] = useState(false);
     useEffect(() => {
         getPost(history);
+        // getMessage();
     }, []);
+
+    const [messId, setMessId] = useState("");
+
+    function makeId(current, toUser) {
+        let chatId = [current, toUser]
+            .sort((a, b) => a.localeCompare(b))
+            .join(" ");
+        setMessId(chatId);
+        setMessageArea(true);
+    }
     return (
         <div
             style={{
@@ -46,14 +61,33 @@ const FriendsPage = ({ history }) => {
                                         Образование: {userInfoData.education}
                                     </div>
                                 </div>
-                                <button className="btn-1">Написать</button>
+                                <button
+                                    onClick={() =>
+                                        makeId(
+                                            currentUser.email,
+                                            userInfoData.id
+                                        )
+                                    }
+                                    className="btn-1"
+                                >
+                                    Написать
+                                </button>
                             </div>
                         </div>
                     </div>
                 </>
             ) : (
                 "jirjgiejgiohfhhhhhhhhhhhhhhhhhhhhhhhhhh"
-            )}
+            )}{" "}
+            {messageArea ? (
+                <div>
+                    <Message
+                        id={messId}
+                        current={currentUser.email}
+                        toUser={userInfoData.id}
+                    />
+                </div>
+            ) : null}
             <div
                 className="user-history"
                 style={{

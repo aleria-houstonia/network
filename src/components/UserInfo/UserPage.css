@@ -12,6 +12,8 @@
 }
 .userpage-edit {
     outline: none;
+    border: none;
+    margin-top: 5px;
 }
 .save-edit {
     width: 45%;
@@ -40,13 +42,14 @@
     overflow: hidden;
     width: 250px;
     margin: 15px 40px;
-}
-.user-image {
     width: 150px;
     height: 150px;
     overflow: hidden;
     border-radius: 50%;
     text-align: center;
+}
+.count-user {
+    font-size: 25px;
 }
 .user-image img {
     height: 100%;
@@ -76,4 +79,98 @@
     width: 800px;
     height: 100px;
     border: 1px solid rgb(202, 202, 202);
+    color: gray;
+    font-size: 18px;
 }
+.count-main {
+    display: flex;
+    align-items: center;
+
+    flex-direction: column;
+}
+
+@media all and (max-width: 1024px) {
+    .user-info {
+        background-color: white;
+        width: 800px;
+        height: 300px;
+        border: 1px solid rgb(202, 202, 202);
+        margin: 10px 50px;
+    }
+}
+
+@media all and (max-width: 768px) {
+    .user-info {
+        width: 650px;
+        height: 300px;
+
+        margin-left: 120px;
+    }
+    .user-active-container {
+        margin-left: 60px;
+        width: 550px;
+        font-size: 18px;
+    }
+}
+
+@media all and (max-width: 425px) {
+    .user-info {
+        width: 300px;
+        height: 250px;
+        margin-left: 130px;
+    }
+    .bio {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+    }
+    .main-desc {
+        margin: 7px 0;
+    }
+    .editBtn {
+        width: 50px;
+        font-size: 11px;
+        height: 25px;
+    }
+    .user-active-container {
+        margin-left: 20px;
+        width: 350px;
+        font-size: 18px;
+    }
+    .user-name {
+        font-size: 20px;
+    }
+    .user-status {
+        font-size: 14px;
+    }
+    .user-info-second {
+        font-size: 9px;
+        color: gray;
+    }
+    .user-image {
+        width: 100px;
+        height: 80px;
+        margin-top: 5px;
+    }
+    .main-user-edit {
+        width: 300px;
+        margin-left: 60px;
+    }
+    .user-active-container {
+        margin-left: 60px;
+        width: 250px;
+        font-size: 12px;
+    }
+    .count-user {
+        font-size: 10px;
+    }
+    .count-main {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* @media all and (max-width:) */

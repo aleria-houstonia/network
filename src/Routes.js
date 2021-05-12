@@ -12,7 +12,6 @@ import AddPost from "./components/AddPost/AddPost";
 import PostContextProvider from "./contexts/PostContext";
 import CommentContextProvider from "./contexts/CommentContext";
 import Home from "./components/Home/Home";
-
 import SavedPost from "./components/SavedPost/SavedPost";
 import UserContextProvider from "./contexts/UsersContext";
 import Friends from "./components/Friends/Friends";
@@ -24,6 +23,8 @@ import MessageContextProvider from "./contexts/MessageContext";
 import Chat from "./components/Message/Chat";
 import Gallery from "./components/Gallery/Gallery";
 import Forum from "./components/Forum/Forum";
+import ChatAdd from "./components/Message/ChatAdd";
+import PrivateRoutes from "./PriveteRoutes";
 
 const Routes = () => {
     return (
@@ -33,92 +34,94 @@ const Routes = () => {
                     {/* <MessageContextProvider> */}
                     <PostContextProvider>
                         <CommentContextProvider>
-                            <BrowserRouter>
-                                <Header />
-                                <Switch>
-                                    <Route
-                                        exact
-                                        path="/savedPost"
-                                        component={SavedPost}
-                                    />
-                                    <Route
-                                        exact
-                                        path="/userpage"
-                                        component={UserPage}
-                                    />
-                                    <Route
-                                        exact
-                                        path="/addinfouser"
-                                        component={UserInfoAdd}
-                                    />
-                                    <Route
-                                        exact
-                                        path="/addpost"
-                                        component={AddPost}
-                                    />
-                                    <Route
-                                        exact
-                                        path="/update"
-                                        component={UpdateProfile}
-                                    />
-                                    <Route
-                                        exact
-                                        path="/login"
-                                        component={Login}
-                                    />
-                                    <Route
-                                        exact
-                                        path="/sign"
-                                        component={Signup}
-                                    />
-                                    <Route
-                                        exact
-                                        path="/forgot"
-                                        component={ForgotPassword}
-                                    />
-                                    <Route exact path="/" component={Home} />
-                                    <Route
-                                        exact
-                                        path="/friends"
-                                        component={Friends}
-                                    />
-                                    <Route
-                                        exact
-                                        path="/friendspage"
-                                        component={FriendsPage}
-                                    />
-                                    <Route
-                                        exact
-                                        path="/settings"
-                                        component={Settings}
-                                    />
-                                    <Route
-                                        exact
-                                        path="/myfriends"
-                                        component={MyFriends}
-                                    />
-                                    {/* <Route
+                            <MessageContextProvider>
+                                <BrowserRouter>
+                                    <Header />
+                                    <Switch>
+                                        <PrivateRoutes
+                                            path="/savedPost"
+                                            component={SavedPost}
+                                        />
+
+                                        <PrivateRoutes
                                             exact
-                                            path="/message"
-                                            component={Message}
+                                            path="/userpage"
+                                            component={UserPage}
+                                        />
+                                        <PrivateRoutes
+                                            exact
+                                            path="/addinfouser"
+                                            component={UserInfoAdd}
+                                        />
+                                        <PrivateRoutes
+                                            exact
+                                            path="/addpost"
+                                            component={AddPost}
+                                        />
+                                        <PrivateRoutes
+                                            exact
+                                            path="/update"
+                                            component={UpdateProfile}
                                         />
                                         <Route
                                             exact
-                                            path="/chat"
-                                            component={Chat}
-                                        /> */}
-                                    <Route
-                                        exact
-                                        path="/gallery"
-                                        component={Gallery}
-                                    />
-                                    <Route
-                                        exact
-                                        path="/forum"
-                                        component={Forum}
-                                    />
-                                </Switch>
-                            </BrowserRouter>
+                                            path="/login"
+                                            component={Login}
+                                        />
+                                        <Route
+                                            exact
+                                            path="/sign"
+                                            component={Signup}
+                                        />
+                                        <Route
+                                            exact
+                                            path="/forgot"
+                                            component={ForgotPassword}
+                                        />
+                                        <PrivateRoutes
+                                            exact
+                                            path="/"
+                                            component={Home}
+                                        />
+                                        <PrivateRoutes
+                                            exact
+                                            path="/friends"
+                                            component={Friends}
+                                        />
+                                        <PrivateRoutes
+                                            exact
+                                            path="/friendspage"
+                                            component={FriendsPage}
+                                        />
+                                        <PrivateRoutes
+                                            exact
+                                            path="/settings"
+                                            component={Settings}
+                                        />
+                                        <PrivateRoutes
+                                            exact
+                                            path="/myfriends"
+                                            component={MyFriends}
+                                        />
+
+                                        <PrivateRoutes
+                                            exact
+                                            path="/gallery"
+                                            component={Gallery}
+                                        />
+                                        <PrivateRoutes
+                                            exact
+                                            path="/forum"
+                                            component={Forum}
+                                        />
+                                        <PrivateRoutes
+                                            exact
+                                            path="/chatAdd"
+                                            component={ChatAdd}
+                                        />
+                                    </Switch>
+                                </BrowserRouter>
+                            </MessageContextProvider>
                         </CommentContextProvider>
                     </PostContextProvider>
                     {/* </MessageContextProvider> */}

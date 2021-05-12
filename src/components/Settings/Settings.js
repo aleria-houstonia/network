@@ -6,7 +6,15 @@ import UpadateProfile from "../AuthThings/UpdateProfile";
 import "./Settings.css";
 const Settings = () => {
     return (
-        <div style={{ display: "flex", justifyContent: "center" }}>
+        <div
+            className="settings"
+            style={{
+                display: "flex",
+                justifyContent: "center",
+                flexWrap: "wrap",
+                alignItems: "center",
+            }}
+        >
             <ForgotPassword />
             {/* <Login /> */}
             {/* <Signup /> */}

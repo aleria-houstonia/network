@@ -17,13 +17,19 @@ const Gallery = () => {
     return (
         <div
             style={{
-                // minHeight: "100vh",
                 display: "flex",
                 flexWrap: "wrap",
-                // width: "600px",
+                justifyContent: "center",
+                alignItems: "center",
+                marginTop: "30px",
+                flexDirection: "column",
             }}
         >
-            <div class="grid-container">
+            {" "}
+            <div style={{ fontSize: "30px", marginBottom: "30px" }}>
+                My Gallery
+            </div>
+            <div class="gallery-cont">
                 {postData.map((item) => (
                     <>
                         {currentUser && currentUser.email == item.secondId ? (

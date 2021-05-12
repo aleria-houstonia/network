@@ -1,31 +1,6 @@
-import React, { useContext, useEffect, useState } from "react";
-import { useAuth } from "../../contexts/AuthContext";
-import { userContext } from "../../contexts/UsersContext";
-import "./Friends.css";
-import EmailOutlinedIcon from "@material-ui/icons/EmailOutlined";
-import { IconButton, useScrollTrigger } from "@material-ui/core";
-// import FriendsPage from "./FriendsPage";
-import AddOutlinedIcon from "@material-ui/icons/AddOutlined";
-import { userInfoContext } from "../../contexts/UserInfoContext";
-const Friends = ({ history }) => {
-    const { resUsers, getUsersRes, addFriend } = useContext(userContext);
-    const { currentUser } = useAuth();
-    const [user, setUser] = useState(false);
-    const { getFriendsInfo, getInfo } = useContext(userInfoContext);
-    const [id, setId] = useState();
-    useEffect(() => {
-        getUsersRes(history);
-    }, []);
-    function getFriendsPage(e) {
-        getFriendsInfo(e);
-        getInfo(e);
-        history.push("/friendspage");
-    }
-    function haveUser(e, item) {
-        addFriend(item);
-        setId(e.target.parentNode.parentNode.id);
-        setUser(true);
-    }
+import React from "react";
+
+const Alarm = () => {
     return (
         <div
             className="friends-cont"
@@ -36,7 +11,6 @@ const Friends = ({ history }) => {
                 flexDirection: "column",
             }}
         >
-            {" "}
             <div className="main-container">
                 {resUsers.map((item) => (
                     <>
@@ -74,4 +48,4 @@ const Friends = ({ history }) => {
     );
 };
 
-export default Friends;
+export default Alarm;

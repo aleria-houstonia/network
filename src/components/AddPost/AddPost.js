@@ -3,6 +3,7 @@ import React, { useContext, useState } from "react";
 import { useAuth } from "../../contexts/AuthContext";
 import { postContext } from "../../contexts/PostContext";
 import { userInfoContext } from "../../contexts/UserInfoContext";
+import "./Addpost.css";
 const AddPost = ({ history }) => {
     const [post, setPost] = useState({ description: "", image: "" });
     const { currentUser } = useAuth();
@@ -36,40 +37,21 @@ const AddPost = ({ history }) => {
             }}
         >
             {" "}
-            <div
-                style={{
-                    maxWidth: "400px",
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    flexDirection: "column",
-                }}
-            >
-                <div>New Post</div>
+            <div className="add">
+                <div className="title-add">Add New Post</div>
                 <input
+                    className="inp-add inp"
                     type="text"
                     name="image"
                     onChange={handleValues}
                     placeholder="image"
-                    style={{
-                        width: "500px",
-                        height: "50px",
-                        textAlign: "center",
-                        fontSize: "15px",
-                    }}
                 />
                 <textarea
                     name="description"
                     onChange={handleValues}
                     placeholder="description"
                     type="text"
-                    style={{
-                        margin: "10px 0",
-                        width: "500px",
-                        height: "150px",
-                        textAlign: "center",
-                        fontSize: "15px",
-                    }}
+                    className="inp-add textarea"
                 ></textarea>
                 {/* <div style={{ display: "flex", justifyContent: "center" }}> */}
                 <button style={{ width: "100px" }} onClick={handleAdd}>

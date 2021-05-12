@@ -15,6 +15,7 @@ import "./Forum.css";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import firebase from "firebase/app";
 import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
+import { EditLocationOutlined } from "@material-ui/icons";
 
 const Forum = () => {
     const { currentUser } = useAuth();
@@ -22,12 +23,12 @@ const Forum = () => {
     const [messages, loading] = useCollectionData(
         firestore.collection("messages").orderBy("createdAt")
     );
-
+    const [edit, setEdit] = useState(false);
+    const [text, setText] = useState();
     const sendMessage = async () => {
         firestore.collection("messages").add({
             uid: currentUser.uid,
             displayName: currentUser.email,
-            // photoURL: currentUser.photoURL,
             text: value,
             createdAt: firebase.firestore.FieldValue.serverTimestamp(),
             id: Date.now(),
@@ -46,12 +47,20 @@ const Forum = () => {
         });
         console.log(res);
     };
+    const editMessage = async (messageId) => {
+        setEdit(false);
+        const res = await firestore
+            .collection("messages")
+            .where("id", "==", messageId);
+        res.get().then(function (querySnapshot) {
+            querySnapshot.forEach(function (doc) {
+                doc.ref.update({ text: text });
+            });
+        });
+    };
 
-    console.log(firestore.collection("messages"));
     return (
         <>
-            <div>asdasdasd</div>
-            {/* <Header /> */}
             <div className="chat__container">
                 <Container>
                     <Grid
@@ -91,24 +100,52 @@ const Forum = () => {
                                         <Grid container>
                                             <Avatar src={item.photoURL} />
                                             <div>{item.displayName}</div>
-                                            <Button
+                                            <button
+                                                style={{ fontSize: "10px" }}
                                                 onClick={() =>
                                                     deleteMessage(item.id)
                                                 }
                                             >
-                                                <DeleteForeverIcon />
-                                            </Button>
+                                                delete
+                                            </button>
+                                            <button
+                                                style={{ fontSize: "10px" }}
+                                                onClick={() => setEdit(true)}
+                                            >
+                                                edit
+                                            </button>
                                         </Grid>
-                                        <div
-                                            style={{
-                                                overflowWrap: "break-word",
-                                            }}
-                                        >
-                                            {item.text}
-                                        </div>
+                                        {edit ? (
+                                            <>
+                                                <input
+                                                    onChange={(e) =>
+                                                        setText(e.target.value)
+                                                    }
+                                                    type="text"
+                                                    defaultValue={item.text}
+                                                />
+                                                <button
+                                                    style={{ fontSize: "10px" }}
+                                                    onClick={() =>
+                                                        editMessage(item.id)
+                                                    }
+                                                >
+                                                    save
+                                                </button>
+                                            </>
+                                        ) : (
+                                            <div
+                                                style={{
+                                                    overflowWrap: "break-word",
+                                                }}
+                                            >
+                                                {item.text}
+                                            </div>
+                                        )}
                                     </div>
                                 ))}
                         </div>
+
                         <Grid
                             container
                             direction={"column"}

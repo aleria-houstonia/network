@@ -2,6 +2,7 @@
 .header {
     background-color: rgb(162, 171, 255);
     font-family: "Crimson Text", serif;
+    width: 100vw;
 }
 .header-main {
     display: flex;
@@ -122,5 +123,29 @@
 @media only screen and (max-width: 720px) {
     html {
         overflow: hidden;
+    }
+}
+@media all and (max-width: 425px) {
+    .header {
+        width: 100%;
+    }
+    .header-center input {
+        font-size: 7px;
+    }
+    .header-right {
+        width: 8%;
+    }
+
+    .header-right_nav-logos {
+        font-size: 15px;
+    }
+    .header-left {
+        font-size: 20px;
+    }
+    .header-center_logo {
+        padding: 5px;
+    }
+    .fas {
+        margin: 4px;
     }
 }
